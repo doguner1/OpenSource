@@ -2,12 +2,15 @@ from flask import Flask, request
 from flask_restful import Api, Resource
 import pandas as pd
 
-app = Flask(__name__)
+app = Flask(_name_)
 api = Api(app)
+
+dosya_uzantisi = r'C:\Users\qwerty\Documents\AçıkKaynak\Hafta_2_Odev\users.csv'
+
 
 class Users(Resource):
     def get(self):
-        data = pd.read_csv('users.csv')
+        data = pd.read_csv(dosya_uzantisi)
         data = data.to_dict('records')
         return {'data' : data}, 200
 
@@ -84,5 +87,5 @@ api.add_resource(Cities, '/cities')
 api.add_resource(Name, '/<string:name>')
 api.add_resource(BMI, '/bmi/<string:name>')
 
-if __name__ == '__main__':
+if _name_ == '_main_':
     app.run()
