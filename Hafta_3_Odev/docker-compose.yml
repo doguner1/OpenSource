@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./myproject
+    command: python3 myproject.py run -h 0.0.0.0
+    volumes:
+      - ./myproject/:/usr/src/app/
+    ports:
+      - 5000:5001
